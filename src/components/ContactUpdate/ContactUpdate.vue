@@ -82,12 +82,15 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import axios from "axios";
+import { mapActions } from "vuex";
 
 export default {
-    name: "ContactDetail",
+    name: "COntactUpdate",
     data() {
-        return {};
+        return {
+            contact: {},
+        };
     },
     methods: {
         ...mapActions(["updateContact"]),
@@ -96,10 +99,17 @@ export default {
             this.updateContact(this.contact);
         },
     },
-    computed: {
-        ...mapGetters({
-            contact: "getContactCurrent",
-        }),
+
+    async created() {
+        try {
+            const contactId = this.$route.params.contactId;
+            const res = await axios.get(
+                `http://localhost:3000/api/contacts/${contactId}`
+            );
+            this.contact = res.data.result;
+        } catch (error) {
+            console.log(error);
+        }
     },
 };
 </script>

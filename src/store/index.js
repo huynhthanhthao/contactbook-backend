@@ -1,10 +1,9 @@
 import { createStore } from "vuex";
 import contactModule from "./contactsModule.js";
 import toastModule from "./toastModule.js";
-import contactCurrentModule from "./contactCurrentModule.js";
 // Create a new store instance.
 const store = createStore({
-    modules: { contactModule, toastModule, contactCurrentModule },
+    modules: { contactModule, toastModule },
     state() {
         return {
             resultSearch: [],

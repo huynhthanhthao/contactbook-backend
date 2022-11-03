@@ -7,7 +7,7 @@ const routes = [
     { path: "/", component: Home },
     { path: "/:pathMatch(.*)*", component: Error },
     { path: "/create", component: ContactCreate },
-    { path: "/update", component: ContactUpdate },
+    { path: "/update/:contactId", component: ContactUpdate },
 ];
 
 const router = createRouter({

@@ -24,7 +24,7 @@
                     </div>
                     <div class="right fs-5">
                         <router-link
-                            to="/update"
+                            :to="'/update/' + contact._id"
                             class="btn me-1"
                             @click="getContactId(contact._id)"
                         >
